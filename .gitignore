@@ -1,0 +1,13 @@
+**/__pycache__
+**/venv
+.idea
+**/.DS_Store
+**/env
+**/node_modules
+temp
+**/*.iml
+**/target
+**/.project
+**/.settings
+**/.classpath
+**/.factorypath

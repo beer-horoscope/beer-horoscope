@@ -1,0 +1,23 @@
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaConnectS2I
+metadata:
+  name: my-connect-cluster
+  annotations:
+    strimzi.io/use-connector-resources: "true"
+spec:
+  bootstrapServers: 'my-cluster-kafka-bootstrap:9092'
+  version: 2.7.0
+  replicas: 1
+  config:
+    group.id: connect-cluster
+    offset.storage.topic: connect-cluster-offsets
+    config.storage.topic: connect-cluster-configs
+    status.storage.topic: connect-cluster-status
+    config.storage.replication.factor: 1
+    offset.storage.replication.factor: 1
+    status.storage.replication.factor: 1
+  externalConfiguration:
+      volumes:
+        - name: connector-config
+          secret:
+            secretName: my-sql-credentials

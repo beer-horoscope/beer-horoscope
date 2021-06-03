@@ -1,1 +1,2 @@
-# beer-horoscope
+# chicago-red-hat-summit-ai-ml
+

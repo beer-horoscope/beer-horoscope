@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: beer-rec-rest-api
+  name: beer-rec-rest-api
+  namespace: beer-rec-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: beer-rec-rest-api
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: beer-rec-rest-api
+    spec:
+      containers:
+      - image: quay.io/kelee/beer-rec-rest-api:latest
+        name: beer-rec-rest-api
+        env:
+          - name: TRAINED_MODELS_DIR
+            value: "/mnt/storage/out/"
+          - name: HOST
+            value: "thekeunster.duckdns.org"
+          - name: PORT
+            value: "3306"
+          - name: DATABASE
+            value: "beer_horoscope"
+          - name: USER
+            value: "user"
+          - name: PASSWORD
+            value: "password"
+        volumeMounts:
+          - mountPath: "/mnt/storage"
+            name: storage
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: beer-rec-pvc
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: beer-rec-rest-api
+  name: beer-rec-rest-api
+  namespace: beer-rec-system
+spec:
+  ports:
+  - name: 5000-5000
+    port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: beer-rec-rest-api
+  type: ClusterIP

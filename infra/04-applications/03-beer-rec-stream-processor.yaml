@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: beer-rec-stream-processor
+  name: beer-rec-stream-processor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: beer-rec-stream-processor
+  template:
+    metadata:
+      labels:
+        app: beer-rec-stream-processor
+    spec:
+      containers:
+        - name: beer-rec-stream-processor
+          image: quay.io/kelee/beer-rec-stream-processor:latest
+          env:
+            - name: BOOTSTRAP_SERVERS
+              value: "my-cluster-kafka-bootstrap:9092"
+            - name: APPLICATION_ID
+              value: "event-stream-processor"
+            - name: SOURCE_TOPIC
+              value: "dbserver.beer_horoscope.beer_reviews"
+            - name: CONNECT_CONNECTOR_CLIENT_CONFIG_OVERRIDE_POLICY
+              value: "All"
+            - name: TRAINING_DATA_TRIGGER_THRESHOLD
+              value: "10000"
+            - name: LOG_LEVEL
+              value: "INFO"

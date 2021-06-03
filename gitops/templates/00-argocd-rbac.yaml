@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apply-rbac
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: openshift-operators
+  source:
+    repoURL: 'https://gitlab.consulting.redhat.com/kelee/chicago-red-hat-summit-ai-ml.git'
+    path: infra/00-role
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

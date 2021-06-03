@@ -1,0 +1,36 @@
+apiVersion: "kafka.strimzi.io/v1alpha1"
+kind: "KafkaConnector"
+metadata:
+  name: "debezium-mysql-kafka-connector"
+  labels:
+    strimzi.io/cluster: my-connect-cluster
+spec:
+  class: io.debezium.connector.mysql.MySqlConnector
+  tasksMax: 1
+  config:
+    database.hostname: "thekeunster.duckdns.org"
+    database.port: "3306"
+    database.user: "user"
+    database.password: "password"
+    database.server.id: "1"
+    database.server.name: "dbserver"
+    database.whitelist: "beer_horoscope"
+    database.history.kafka.bootstrap.servers: "my-cluster-kafka-bootstrap:9092"
+    database.history.kafka.topic: "schema-changes.beer_reviews"
+    include.schema.changes: "true"
+---
+
+apiVersion: "kafka.strimzi.io/v1alpha1"
+kind: "KafkaConnector"
+metadata:
+  name: "http-sink-connector"
+  labels:
+    strimzi.io/cluster: my-connect-cluster
+spec:
+  class: org.apache.camel.kafkaconnector.http.CamelHttpSinkConnector
+  tasksMax: 1
+  config:
+    topics: "http-messages"
+    camel.sink.path.httpUri: "beer-rec-rest-api.beer-rec-system:5000/api/test"
+    key.converter: "org.apache.kafka.connect.storage.StringConverter"
+    value.converter: "org.apache.kafka.connect.storage.StringConverter"
