@@ -1,2 +1,2 @@
-# chicago-red-hat-summit-ai-ml
+# The Modern Fortune Teller - Beer Horoscope
 
