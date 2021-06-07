@@ -8,4 +8,8 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
 
 - An accessible Red Hat Openshift Cluster >= 4.7.x
 
+# Mysql Database Setup
 
+# Infrastructure Automation
+
+# Open Data Hub Walkthrough

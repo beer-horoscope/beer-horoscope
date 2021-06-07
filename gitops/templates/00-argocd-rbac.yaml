@@ -8,7 +8,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
     namespace: openshift-operators
   source:
-    repoURL: 'https://gitlab.consulting.redhat.com/kelee/chicago-red-hat-summit-ai-ml.git'
+    repoURL: 'https://github.com/beer-horoscope/beer-horoscope.git'
     path: infra/00-role
     targetRevision: HEAD
   project: default
