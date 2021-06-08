@@ -23,7 +23,7 @@ spec:
           - name: TRAINED_MODELS_DIR
             value: "/mnt/storage/out/"
           - name: HOST
-            value: "postgres-host"
+            value: "mysql"
           - name: PORT
             value: "3306"
           - name: DATABASE
