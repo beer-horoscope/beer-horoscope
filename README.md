@@ -65,7 +65,7 @@ oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; select * fro
 
 # III. Infrastructure
 
-## Option 1 - Use GitOps for Infrastructure Setup
+## Option 1 - Setup Infra with GitOps
 
 ### Install the "Red Hat GitOps Operator"
 
@@ -75,7 +75,7 @@ oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; select * fro
 4. Install for all namespaces
 5. Wait until the operator is fully installed
 
-### Open ArgoCD UI
+### Create an ArgoCD Application
 
 1. Assign cluster admin role to the service account `openshift-gitops-argocd-application-controller`
 
@@ -129,7 +129,7 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 ![Screenshot from 2021-06-08 08-28-27](https://user-images.githubusercontent.com/61749/121194029-f7ba4880-c833-11eb-8438-5be1f712fc83.png)
 
 
-## Option 2 - Use Script(s)
+## Option 2 - Setup Infra with Script
 
 # IV. Open Data Hub
 

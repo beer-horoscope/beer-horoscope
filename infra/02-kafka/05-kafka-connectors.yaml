@@ -8,7 +8,7 @@ spec:
   class: io.debezium.connector.mysql.MySqlConnector
   tasksMax: 1
   config:
-    database.hostname: "thekeunster.duckdns.org"
+    database.hostname: "mysql"
     database.port: "3306"
     database.user: "user"
     database.password: "password"
