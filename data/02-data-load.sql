@@ -1,4 +1,8 @@
-LOAD DATA LOCAL INFILE '/var/lib/mysql-files/beer_reviews.csv' 
+SET GLOBAL local_infile=1;
+
+USE `beer_horoscope`;
+
+LOAD DATA LOCAL INFILE '/tmp/data/beer_reviews.csv' 
 INTO TABLE beer_reviews 
 FIELDS TERMINATED BY ',' 
 LINES TERMINATED BY '\n' 

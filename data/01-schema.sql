@@ -1,4 +1,6 @@
-CREATE SCHEMA `beer_horoscope` ;
+CREATE DATABASE IF NOT EXISTS `beer_horoscope`;
+
+USE `beer_horoscope`;
 
 CREATE TABLE `beer_reviews` (
   `id` int NOT NULL AUTO_INCREMENT,
