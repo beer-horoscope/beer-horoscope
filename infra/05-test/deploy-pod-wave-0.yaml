@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: testpod-wave-0
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   containers:
   - name: testpod-wave-0
