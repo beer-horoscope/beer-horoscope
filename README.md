@@ -11,15 +11,15 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
     - [mirror 1](https://www.kaggle.com/rdoume/beerreviews) 
     - [mirror 2](https://data.world/socialmediadata/beeradvocate)
 
-# I. Create Openshift Project
+# I. Initial Setup
+
+## 1. Create Openshift Project
 
 ```bash
 oc create new-project beer-rec-system
 ```
 
-# II. Database Setup
-
-## Create Database
+## 2. Create Database
 
 ```bash
 # create mysql database deployment config
@@ -44,7 +44,7 @@ oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/02-data-load.sql"
 oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/03-store-procedures.sql"
 ```
 
-## Validate Database
+## 3. Validate Database
 
 ```bash
 # validate the database
@@ -63,7 +63,7 @@ oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; select count
 oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; select * from beer_reviews limit 10;'"
 ```
 
-# III. Infrastructure
+# II. Infrastructure
 
 ## Option 1 - Setup Infra with GitOps
 ---
@@ -150,8 +150,8 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 ---
 
 
-# IV. Open Data Hub
+# III. Open Data Hub
 
-# V. Model Training
+# IV. Model Training
 
-# VI. Application Walkthrough
+# V. Application Walkthrough
