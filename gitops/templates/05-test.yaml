@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 05-test
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: beer-rec-system
+  source:
+    repoURL: 'https://github.com/beer-horoscope/beer-horoscope.git'
+    path: infra/05-test
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
