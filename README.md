@@ -99,12 +99,36 @@ oc -n openshift-gitops get secrets openshift-gitops-cluster -o 'go-template={{in
     - password: obtained in previous step
 
 4. Add a Git Repository to ArgoCD
-
     - click: ***Settings (Gear Icon)::Connect Repo Using Https*** 
-    - fillin the form using the following git repository url: [
+    - fill in the form field 
+        - **repository url**: [
 https://github.com/beer-horoscope/beer-horoscope.git](
 https://github.com/beer-horoscope/beer-horoscope.git)
 ![Screenshot from 2021-06-08 02-39-22](https://user-images.githubusercontent.com/61749/121143551-c7a68180-c802-11eb-9a59-982c87c161a6.png)
+    - click: ***Connect***
+
+5. Add an Application to ArgoCD
+    - click: ***Applications (Stack Icon)::New App***
+    - fill in the form fields:
+        - General 
+            - ***Application Name***: beer-horoscope
+            - ***Project***: default
+            - ***Sync Policy***: Manual (Defaults)
+            - ***Sync Options***: None (Defaults)
+            - ***Prune Propogation Policy***: foreground
+        - Source
+            - ***Repository Url***: https://github.com/beer-horoscope/beer-horoscope.git
+            - ***Revision***: HEAD
+            - ***Path***: gitops
+        - Destination
+            - ***Cluster Url***: https://kubernetes.default.svc
+            - ***Namespace***: beer-rec-system
+        - Helm
+            - ***Values File***: values.xml
+            - ***spec.destination.server***: https://kubernetes.default.svc
+![Screenshot from 2021-06-08 08-28-27](https://user-images.githubusercontent.com/61749/121194029-f7ba4880-c833-11eb-8438-5be1f712fc83.png)
+
+
 ## Option 2 - Use Script(s)
 
 # IV. Open Data Hub
