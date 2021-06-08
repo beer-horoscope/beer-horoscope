@@ -134,7 +134,8 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 - ***Before***:
 ![Screenshot from 2021-06-08 09-00-27](https://user-images.githubusercontent.com/61749/121215157-618f1e00-c845-11eb-9d1f-6871c87a4bfd.png)
 - ***After***:
-![Screenshot from 2021-06-08 10-39-35](https://user-images.githubusercontent.com/61749/121215703-dbbfa280-c845-11eb-8c30-56bd2d45b527.png)
+![Screenshot from 2021-06-08 11-35-51](https://user-images.githubusercontent.com/61749/121223976-b5056a00-c84d-11eb-95ba-35bb7dfbecf5.png)
+
 
 ## 3. Install Operators
 
