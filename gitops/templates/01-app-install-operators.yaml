@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: install-operators
+  name: 01-install-operators
   namespace: openshift-gitops
 spec:
   destination:

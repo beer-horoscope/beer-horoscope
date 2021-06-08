@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: infra-kfdef
+  name: 02-infra-kfdef
   namespace: openshift-gitops
 spec:
   destination:

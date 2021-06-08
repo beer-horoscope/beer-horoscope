@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: infra-kafka
+  name: 03-infra-kafka
   namespace: openshift-gitops
 spec:
   destination:
