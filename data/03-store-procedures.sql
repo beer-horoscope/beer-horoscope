@@ -1,3 +1,5 @@
+USE `beer_horoscope`;
+
 DELIMITER //
 
 CREATE PROCEDURE post_beer_rating (
