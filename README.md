@@ -78,13 +78,13 @@ oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; select * fro
 
 ## 2. Create an ArgoCD Application
 
-### 1. Assign cluster admin role to the service account `openshift-gitops-argocd-application-controller`
+### i. Assign cluster admin role to the service account `openshift-gitops-argocd-application-controller`
 
 ```bash
 oc adm policy add-cluster-role-to-user cluster-admin -z openshift-gitops-argocd-application-controller -n openshift-gitops
 ```
 
-### 2. Obtain the admin password
+### ii. Obtain the admin password
 
 ```bash
 oc -n openshift-gitops get secrets openshift-gitops-cluster -o 'go-template={{index .data "admin.password"}
@@ -94,12 +94,12 @@ oc -n openshift-gitops get secrets openshift-gitops-cluster -o 'go-template={{in
 # copy everything up to the '%' character
 ```
 
-### 3. login to Argo CD: 
+### iii. login to Argo CD: 
 - Uri: [https://openshift-gitops-server-openshift-gitops.apps.okd.thekeunster.local/](https://openshift-gitops-server-openshift-gitops.apps.okd.thekeunster.local/)
 - username: admin
 - password: obtained in previous step
 
-### 4. Add a Git Repository to ArgoCD
+### iv. Add a Git Repository to ArgoCD
 - click: ***Settings (Gear Icon)::Connect Repo Using Https*** 
 - fill in the form field 
     - **repository url**: [
@@ -108,7 +108,7 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 ![Screenshot from 2021-06-08 02-39-22](https://user-images.githubusercontent.com/61749/121143551-c7a68180-c802-11eb-9a59-982c87c161a6.png)
 - click: ***Connect***
 
-### 5. Add an Application to ArgoCD
+### v. Add an Application to ArgoCD
 - click: ***Applications (Stack Icon)::New App***
 - fill in the form fields:
     - General 
@@ -129,7 +129,7 @@ https://github.com/beer-horoscope/beer-horoscope.git)
         - ***spec.destination.server***: https://kubernetes.default.svc
 ![Screenshot from 2021-06-08 08-28-27](https://user-images.githubusercontent.com/61749/121194029-f7ba4880-c833-11eb-8438-5be1f712fc83.png)
 
-### 6. Sync the Beer Horoscope Application
+### vi. Sync the Beer Horoscope Application
 - click: ***Sync::Synchronize***, from the beer-horoscope application box and follow dialog respectively. This will bring in all sub applications tied via Helm Chart, as defined in the repository, and synchronize with your ArgoCD main application, beer-horoscope. 
 - ***Before***:
 ![Screenshot from 2021-06-08 09-00-27](https://user-images.githubusercontent.com/61749/121215157-618f1e00-c845-11eb-9d1f-6871c87a4bfd.png)
