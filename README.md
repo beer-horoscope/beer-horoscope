@@ -11,18 +11,18 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
     - [mirror 1](https://www.kaggle.com/rdoume/beerreviews) 
     - [mirror 2](https://data.world/socialmediadata/beeradvocate)
 
-# Create Openshift Project
+# I. Create Openshift Project
 
 ```bash
 oc create new-project beer-rec-system
 ```
 
-# Database Setup
+# II. Database Setup
 
 ## Create Database
 
 ```bash
-# create mysq database deployment config
+# create mysql database deployment config
 oc new-app mysql-persistent -p=NAMESPACE=openshift -p=DATABASE_SERVICE_NAME=mysql -p=MYSQL_DATABASE=beer_horoscope -p=MYSQL_USER=user -p=MYSQL_PASSWORD=password -p=MYSQL_ROOT_PASSWORD=password -p=MEMORY_LIMIT=8Gi -p=VOLUME_CAPACITY=5Gi -p=MYSQL_VERSION=8.0-el8
 
 # create alias for the mysql pod
@@ -63,6 +63,39 @@ oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; select count
 oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; select * from beer_reviews limit 10;'"
 ```
 
-# Infrastructure
+# III. Infrastructure
 
-# Open Data Hub
+## Option 1 - Use GitOps for Infrastructure Setup
+
+### Install the "Red Hat GitOps Operator"
+
+1. Goto the "Operatorhub"
+2. Search for "OpenShift GitOps"
+3. Select "Red Hat OpenShift GitOps"
+4. Install for all namespaces
+5. Wait until the operator is fully installed
+
+### Open ArgoCD UI
+
+1. Obtain the admin password
+
+```bash
+oc -n openshift-gitops get secrets openshift-gitops-cluster -o 'go-template={{index .data "admin.password"}
+}' | base64 -d
+
+# example output: ZwCQrTRmgoLUpB1vdJ7I8sku5H9DPFyG%
+# copy everything up to the '%' character
+```
+
+2. login to Argo CD: 
+    - Uri: [https://openshift-gitops-server-openshift-gitops.apps.okd.thekeunster.local/](https://openshift-gitops-server-openshift-gitops.apps.okd.thekeunster.local/)
+    - username: admin
+    - password: obtained in previous step
+
+## Option 2 - Use Script(s)
+
+# IV. Open Data Hub
+
+# V. Model Training
+
+# VI. Application Walkthrough
