@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testpod-wave-0
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  containers:
+  - name: testpod-wave-0
+    image: ubuntu:latest
+    command: ["/bin/sh", "-c", "tail -f /dev/null"]
