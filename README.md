@@ -77,7 +77,13 @@ oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; select * fro
 
 ### Open ArgoCD UI
 
-1. Obtain the admin password
+1. Assign cluster admin role to the service account `openshift-gitops-argocd-application-controller`
+
+```bash
+oc adm policy add-cluster-role-to-user cluster-admin -z openshift-gitops-argocd-application-controller -n openshift-gitops
+```
+
+2. Obtain the admin password
 
 ```bash
 oc -n openshift-gitops get secrets openshift-gitops-cluster -o 'go-template={{index .data "admin.password"}
@@ -87,11 +93,18 @@ oc -n openshift-gitops get secrets openshift-gitops-cluster -o 'go-template={{in
 # copy everything up to the '%' character
 ```
 
-2. login to Argo CD: 
+3. login to Argo CD: 
     - Uri: [https://openshift-gitops-server-openshift-gitops.apps.okd.thekeunster.local/](https://openshift-gitops-server-openshift-gitops.apps.okd.thekeunster.local/)
     - username: admin
     - password: obtained in previous step
 
+4. Add a Git Repository to ArgoCD
+
+    - click: ***Settings (Gear Icon)::Connect Repo Using Https*** 
+    - fillin the form using the following git repository url: [
+https://github.com/beer-horoscope/beer-horoscope.git](
+https://github.com/beer-horoscope/beer-horoscope.git)
+![Screenshot from 2021-06-08 02-39-22](https://user-images.githubusercontent.com/61749/121143551-c7a68180-c802-11eb-9a59-982c87c161a6.png)
 ## Option 2 - Use Script(s)
 
 # IV. Open Data Hub
