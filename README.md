@@ -43,7 +43,16 @@ oc -n openshift-gitops get secrets openshift-gitops-cluster -o 'go-template={{in
 ```
 
 ### iii. login to Argo CD: 
-- Uri: [https://openshift-gitops-server-openshift-gitops.apps.okd.thekeunster.local/](https://openshift-gitops-server-openshift-gitops.apps.okd.thekeunster.local/)
+- Uri: 
+    ```bash
+    #get the argocd route uri
+    argocd_uri=$(oc get routes openshift-gitops-server -n openshift-gitops -o 'jsonpath={.spec.host}')
+    
+    # print the full uri and navigate to that in your browser
+    # example: https://openshift-gitops-server-openshift-gitops.apps.cluster.local
+    echo https://$argocd_uri
+    ```
+     
 - username: admin
 - password: obtained in previous step
 
