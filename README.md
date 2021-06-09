@@ -81,7 +81,7 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 ![Screenshot from 2021-06-08 08-28-27](https://user-images.githubusercontent.com/61749/121194029-f7ba4880-c833-11eb-8438-5be1f712fc83.png)
 
 ### vi. Sync the Beer Horoscope Application
-- click: ***Sync::Synchronize***, from the beer-horoscope application box and following dialog respectively. This will bring in all sub applications tied via Helm Chart, as defined in the repository, and synchronize with your ArgoCD main application, beer-horoscope.
+- click: ***Sync::Synchronize***, from the beer-horoscope application box and following modal dialog respectively. This will bring in all sub applications tied via Helm Chart, as defined in the repository, and synchronize with your ArgoCD main application, beer-horoscope.
 
 - ***Before***:
 ![Screenshot from 2021-06-08 09-00-27](https://user-images.githubusercontent.com/61749/121215157-618f1e00-c845-11eb-9d1f-6871c87a4bfd.png)
@@ -90,6 +90,15 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 ![Screenshot from 2021-06-09 13-25-43](https://user-images.githubusercontent.com/61749/121408647-40522e80-c926-11eb-9772-547a24090408.png)
 
 ## 3. Install Operators
+
+- click: on the `00-operators` Application Tile and you will see should then see the following application layout: 
+![Screenshot from 2021-06-09 14-09-31](https://user-images.githubusercontent.com/61749/121414518-55ca5700-c92c-11eb-807d-1b8672f430b1.png)
+- click: ***Sync::Synchronize***, from the `00-operators` application box and following modal dialog respectively. This will deploy the AMQ Streams and Open Data Hub Operator into your cluster. 
+- Validate the deployment by reviewing the following: 
+    - The ArgoCD application details should look similar to the following: 
+    ![Screenshot from 2021-06-09 14-17-16](https://user-images.githubusercontent.com/61749/121415500-6af3b580-c92d-11eb-8c3f-130a0d765e17.png)
+    - Review the deployment by reviewing your installed operators in your project within Openshift. 
+    ![Screenshot from 2021-06-09 14-18-20](https://user-images.githubusercontent.com/61749/121415629-91b1ec00-c92d-11eb-9889-9af8815d9f7f.png)
 
 ## 4. Install Open Data Hub Instance
 
