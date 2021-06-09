@@ -22,3 +22,33 @@ spec:
         - name: connector-config
           secret:
             secretName: my-sql-credentials
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kafka-connect-cluster-created-job
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  serviceAccountName: internal-oc-container
+  containers:
+  - name: internal-oc-container
+    image: quay.io/kelee/internal-oc-container:latest
+    command:
+    - sh
+    - "-c"
+    - |
+      /bin/bash <<'EOF'
+
+      oc wait --for=condition=Ready --timeout=600s KafkaConnectS2I/my-connect-cluster
+
+      cd /home
+      mkdir temp
+      cd temp
+      git clone https://github.com/beer-horoscope/beer-horoscope.git
+      cd beer-horoscope
+
+      
+
+      EOF
+  restartPolicy: Never

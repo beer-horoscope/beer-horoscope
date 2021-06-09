@@ -40,3 +40,25 @@ spec:
       deleteClaim: false
       size: 100Gi
       type: persistent-claim
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kafka-cluster-created-job
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  serviceAccountName: internal-oc-container
+  containers:
+  - name: internal-oc-container
+    image: quay.io/kelee/internal-oc-container:latest
+    command:
+    - sh
+    - "-c"
+    - |
+      /bin/bash <<'EOF'
+
+      oc wait --for=condition=Ready --timeout=600s Kafka/my-cluster
+      
+      EOF
+  restartPolicy: Never
