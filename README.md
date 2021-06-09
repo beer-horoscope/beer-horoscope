@@ -8,16 +8,13 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
 
 - An Openshift Cluster >= v4.7.x
 
-# I. Infrastructure
+# I. Infrastructure, Deployment, and Setup
 
-## Create Openshift Project
+## 0. Create Openshift Project
 
 ```bash
 oc create new-project beer-rec-system
 ```
-
-## Setup Infra with GitOps
----
 
 ## 1. Install the "Red Hat GitOps Operator"
 
@@ -81,7 +78,7 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 ![Screenshot from 2021-06-08 08-28-27](https://user-images.githubusercontent.com/61749/121194029-f7ba4880-c833-11eb-8438-5be1f712fc83.png)
 
 ### vi. Sync the Beer Horoscope Application
-- click: ***Sync::Synchronize***, from the beer-horoscope application box and following modal dialog respectively. This will bring in all sub applications tied via Helm Chart, as defined in the repository, and synchronize with your ArgoCD main application, beer-horoscope.
+- click: ***Sync::Synchronize***, from the beer-horoscope application box and the following modal dialog respectively. This will bring in all sub applications tied via Helm Chart, as defined in the repository, and synchronize with your ArgoCD main application, beer-horoscope.
 
 - ***Before***:
 ![Screenshot from 2021-06-08 09-00-27](https://user-images.githubusercontent.com/61749/121215157-618f1e00-c845-11eb-9d1f-6871c87a4bfd.png)
@@ -91,22 +88,24 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 
 ## 3. Install Operators
 
-- click: on the `00-operators` Application Tile and you will see should then see the following application layout: 
+- click: on the `00-operators` Application Tile and you will be presented with the following application layout: 
 ![Screenshot from 2021-06-09 14-09-31](https://user-images.githubusercontent.com/61749/121414518-55ca5700-c92c-11eb-807d-1b8672f430b1.png)
-- click: ***Sync::Synchronize***, from the `00-operators` application box and following modal dialog respectively. This will deploy the AMQ Streams and Open Data Hub Operator into your cluster. 
+- click: ***Sync::Synchronize***, from the `00-operators` application box and the following modal dialog respectively. This will deploy the Red Hat AMQ Streams and Open Data Hub Operator into your cluster. 
 - Validate the deployment by reviewing the following: 
     - The ArgoCD application details should look similar to the following: 
     ![Screenshot from 2021-06-09 14-17-16](https://user-images.githubusercontent.com/61749/121415500-6af3b580-c92d-11eb-8c3f-130a0d765e17.png)
     - Review the deployment by reviewing your installed operators in your project within Openshift. 
     ![Screenshot from 2021-06-09 14-18-20](https://user-images.githubusercontent.com/61749/121415629-91b1ec00-c92d-11eb-9889-9af8815d9f7f.png)
 
-## 4. Install Open Data Hub Instance
+## 4. Install a MySql Database Instance
 
-## 5. Install and Setup Kafka and Kafka Connect
+## 5. Install Open Data Hub Instance
 
-## 6. Configure Storage
+## 6. Install and Setup Kafka and Kafka Connect
 
-## 7. Deploy Applications
+## 7. Configure Storage
+
+## 8. Deploy Applications
 
 # III. Open Data Hub
 
