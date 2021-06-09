@@ -85,7 +85,7 @@ def cache_refresh():
         thread = threading.Thread(target=mutual_cache_refresh(), args=(lock,))
         thread.daemon = True
         thread.start()
-        return "training data. this will take a while"
+        return "cache refreshing"
 
 
 @app.route('/api/train', methods=['GET'])
@@ -94,7 +94,7 @@ def trigger_train_models():
         thread = threading.Thread(target=mutual_train_models(), args=(lock,))
         thread.daemon = True
         thread.start()
-        return "cache refreshing"
+        return "training data. this will take a while"
 
 
 @app.route('/api/test', methods=['GET', 'POST', 'PUT'])

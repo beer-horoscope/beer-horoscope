@@ -23,4 +23,16 @@ oc cp beer_reviews.csv ${mpod}:/tmp/data
 # wait for database to go online
 sleep 30
 
+# create schema
+oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/01-schema.sql"
+
+# load csv data (this will take a few minutes)
+oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/02-data-load.sql"
+
+# create stored procs
+oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/03-store-procedures.sql"
+
+# update user priviliges
+oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/04-grants-permissions.sql"
+
 source data/validate-database.sh

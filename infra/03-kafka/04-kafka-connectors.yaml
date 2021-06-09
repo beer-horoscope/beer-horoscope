@@ -35,6 +35,6 @@ spec:
   tasksMax: 1
   config:
     topics: "http-messages"
-    camel.sink.path.httpUri: "beer-rec-rest-api.beer-rec-system:5000/api/test"
+    camel.sink.path.httpUri: "beer-rec-rest-api.beer-rec-system:5000/api/train"
     key.converter: "org.apache.kafka.connect.storage.StringConverter"
     value.converter: "org.apache.kafka.connect.storage.StringConverter"

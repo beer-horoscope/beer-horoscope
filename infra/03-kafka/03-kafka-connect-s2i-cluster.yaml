@@ -40,6 +40,8 @@ spec:
     - |
       /bin/bash <<'EOF'
 
+      sleep 120
+
       oc wait --for=condition=Ready --timeout=600s KafkaConnectS2I/my-connect-cluster
 
       cd /home
@@ -48,7 +50,12 @@ spec:
       git clone https://github.com/beer-horoscope/beer-horoscope.git
       cd beer-horoscope
 
-      
+      # start a build to upload the connector via s2i
+      oc start-build my-connect-cluster-connect --from-dir=infra/03-kafka/connectors --follow
+
+      oc wait --for=condition=Complete --timeout=360s Build/my-connect-cluster-connect-2
+
+      sleep 180
 
       EOF
   restartPolicy: Never
