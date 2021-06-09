@@ -12,32 +12,14 @@ spec:
     - "-c"
     - |
       /bin/bash <<'EOF'
-      cd /home
-        
-      echo "001"
-      pwd
-      ls -ll -a
 
+      cd /home
       mkdir temp
       cd temp
       git clone https://github.com/beer-horoscope/beer-horoscope.git
-
-      echo "002"
-      pwd
-      ls -ll -a
-
       cd beer-horoscope
-
-      echo "003"
-      pwd
-      ls -ll -a
-
-      cd scripts
-
-      echo "004"
-      pwd
-      ls -ll -a
-
+      source scripts/create-database.sh
+      
       EOF
    
   restartPolicy: Never

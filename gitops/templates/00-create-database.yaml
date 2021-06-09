@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 00-create-database
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: beer-rec-system
+  source:
+    repoURL: 'https://github.com/beer-horoscope/beer-horoscope.git'
+    path: infra/00-database
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

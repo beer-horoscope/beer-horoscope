@@ -9,5 +9,8 @@ oc delete secret mysql
 oc delete service mysql
 oc delete pvc mysql
 
+# remove jobs
+oc delete po create-database-job
+
 rm beer_reviews_data.zip
 rm beer_reviews.csv
