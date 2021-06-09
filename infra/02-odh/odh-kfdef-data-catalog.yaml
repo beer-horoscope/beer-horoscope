@@ -1,0 +1,49 @@
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  name: opendatahub
+  namespace: beer-rec-system
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-common
+      name: odh-common
+    - kustomizeConfig:
+        parameters:
+          - name: s3_endpoint_url
+            value: s3.odh.com
+        repoRef:
+          name: manifests
+          path: jupyterhub/jupyterhub
+      name: jupyterhub
+    - kustomizeConfig:
+        overlays:
+          - additional
+        repoRef:
+          name: manifests
+          path: jupyterhub/notebook-images
+      name: notebook-images
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-dashboard
+      name: odh-dashboard
+      # Create the SecurityContextConstraint to grant the ceph-nano service account anyuid permissions
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: ceph/object-storage/scc
+      name: ceph-nano-scc
+    # Deploy ceph-nano for minimal object storage running in a pod
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: ceph/object-storage/nano
+      name: ceph-nano
+  repos:
+    - name: kf-manifests
+      uri: 'https://github.com/kubeflow/manifests/tarball/v1.2-branch'
+    - name: manifests
+      uri: 'https://github.com/opendatahub-io/odh-manifests/tarball/v1.0.0'

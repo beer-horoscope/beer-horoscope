@@ -8,61 +8,13 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
 
 - An Openshift Cluster >= v4.7.x
 
-# I. Initial Setup
+# I. Infrastructure
 
-## 1. Create Openshift Project
+## Create Openshift Project
 
 ```bash
 oc create new-project beer-rec-system
 ```
-
-## 2. Create Database
-
-Obtain the Beer Review csv data from one of the mirrors in the prequisites section. Once obtained, place the csv file, "beer_reviews.csv", in the root of the repository folder. 
-
-```bash
-# create mysql database deployment config
-oc new-app mysql-persistent -p=NAMESPACE=openshift -p=DATABASE_SERVICE_NAME=mysql -p=MYSQL_DATABASE=beer_horoscope -p=MYSQL_USER=user -p=MYSQL_PASSWORD=password -p=MYSQL_ROOT_PASSWORD=password -p=MEMORY_LIMIT=8Gi -p=VOLUME_CAPACITY=5Gi -p=MYSQL_VERSION=8.0-el8
-
-# create alias for the mysql pod
-mpod=$(oc get pods --selector name=mysql --output name | awk -F/ '{print $NF}')
-
-# copy over sql scripts
-oc cp data ${mpod}:/tmp
-
-# copy over beer review csv data (obtained in pre-requisite step)
-oc cp /replace/with/path/to/beer_reviews.csv ${mpod}:/tmp/data
-
-# create schema
-oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/01-schema.sql"
-
-# load csv data (this will take a few minutes)
-oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/02-data-load.sql"
-
-# create stored procs
-oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/03-store-procedures.sql"
-```
-
-## 3. Validate Database
-
-```bash
-# validate the database
-oc exec $mpod -- bash -c "mysql --user=root -e 'show databases;'"
-
-# validate database tables
-oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; show tables;'"
-
-# validate table columns
-oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; describe beer_reviews;'"
-
-# validate data load
-oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; select count(*) from beer_reviews;'" 
-
-# validate row data
-oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; select * from beer_reviews limit 10;'"
-```
-
-# II. Infrastructure
 
 ## Option 1 - Setup Infra with GitOps
 ---

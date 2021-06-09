@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 02-infra-kafka
+  name: 05-applications
   namespace: openshift-gitops
 spec:
   destination:
@@ -9,7 +9,7 @@ spec:
     namespace: beer-rec-system
   source:
     repoURL: 'https://github.com/beer-horoscope/beer-horoscope.git'
-    path: infra/02-kafka
+    path: infra/05-applications
     targetRevision: HEAD
   project: default
   syncPolicy:

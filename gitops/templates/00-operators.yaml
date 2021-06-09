@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 03-infra-storage
+  name: 00-operators
   namespace: openshift-gitops
 spec:
   destination:
     server: {{ .Values.spec.destination.server }}
-    namespace: beer-rec-system
+    namespace: openshift-operators
   source:
     repoURL: 'https://github.com/beer-horoscope/beer-horoscope.git'
-    path: infra/03-storage/default
+    path: infra/00-operators
     targetRevision: HEAD
   project: default
   syncPolicy:
