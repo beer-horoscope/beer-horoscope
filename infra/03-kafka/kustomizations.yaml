@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- 00-my-sql-credentials-secret.yaml
+- 01-kafka-cluster.yaml
+- 02-kafka-topics.yaml
+- 03-kafka-connect-s2i-cluster.yaml
+- 04-kafka-connectors.yaml

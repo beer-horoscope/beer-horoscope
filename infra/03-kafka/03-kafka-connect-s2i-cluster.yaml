@@ -4,6 +4,7 @@ metadata:
   name: my-connect-cluster
   annotations:
     strimzi.io/use-connector-resources: "true"
+    argocd.argoproj.io/sync-wave: "3"   
 spec:
   bootstrapServers: 'my-cluster-kafka-bootstrap:9092'
   version: 2.7.0

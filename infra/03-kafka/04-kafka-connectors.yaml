@@ -1,9 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: create-database-job
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  serviceAccountName: internal-oc-container
+  containers:
+  - name: internal-oc-container
+    image: quay.io/kelee/internal-oc-container:latest
+    command:
+    - sh
+    - "-c"
+    - |
+      /bin/bash <<'EOF'
+      EOF
+  restartPolicy: Never
+---
+
 apiVersion: "kafka.strimzi.io/v1alpha1"
 kind: "KafkaConnector"
 metadata:
   name: "debezium-mysql-kafka-connector"
   labels:
     strimzi.io/cluster: my-connect-cluster
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   class: io.debezium.connector.mysql.MySqlConnector
   tasksMax: 1
@@ -26,6 +48,8 @@ metadata:
   name: "http-sink-connector"
   labels:
     strimzi.io/cluster: my-connect-cluster
+  annotations:
+    argocd.argoproj.io/sync-wave: "6"
 spec:
   class: org.apache.camel.kafkaconnector.http.CamelHttpSinkConnector
   tasksMax: 1
