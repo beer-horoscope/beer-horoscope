@@ -16,7 +16,7 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
 oc create new-project beer-rec-system
 ```
 
-## Option 1 - Setup Infra with GitOps
+## Setup Infra with GitOps
 ---
 
 ## 1. Install the "Red Hat GitOps Operator"
@@ -96,10 +96,6 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 ## 6. Configure Storage
 
 ## 7. Deploy Applications
-
-## Option 2 - Setup Infra with Script
----
-
 
 # III. Open Data Hub
 
