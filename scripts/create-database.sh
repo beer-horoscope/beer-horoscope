@@ -23,26 +23,4 @@ oc cp beer_reviews.csv ${mpod}:/tmp/data
 # wait for database to go online
 sleep 30
 
-# create schema
-oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/01-schema.sql"
-
-# load csv data (this will take a few minutes)
-oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/02-data-load.sql"
-
-# create stored procs
-oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/03-store-procedures.sql"
-
-# validate the database
-oc exec $mpod -- bash -c "mysql --user=root -e 'show databases;'"
-
-# validate database tables
-oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; show tables;'"
-
-# validate table columns
-oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; describe beer_reviews;'"
-
-# validate data load
-oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; select count(*) from beer_reviews;'" 
-
-# validate row data
-oc exec $mpod -- bash -c "mysql --user=root -e 'use beer_horoscope; select * from beer_reviews limit 10;'"
+source data/validate-database.sh
