@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: create-database-job
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   serviceAccountName: internal-oc-container
   containers:

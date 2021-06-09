@@ -2,6 +2,8 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: modify-pods-to-sa
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 subjects:
   - kind: ServiceAccount
     name: internal-oc-container
