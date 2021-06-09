@@ -35,4 +35,4 @@ oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/03-store-procedures.sql"
 # update user priviliges
 oc exec $mpod -- bash -c "mysql --user=root < /tmp/data/04-grants-permissions.sql"
 
-source data/validate-database.sh
+source scripts/validate-database.sh
