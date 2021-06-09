@@ -117,6 +117,14 @@ https://github.com/beer-horoscope/beer-horoscope.git)
         ```
 
 ## 5. Install Open Data Hub Instance
+- click: on the `02-odh` Application Tile and you will be presented with the following application layout: 
+![Screenshot from 2021-06-09 15-19-54](https://user-images.githubusercontent.com/61749/121423710-2d475a80-c936-11eb-80ba-c0378227e2b8.png)
+- click: ***Sync::Synchronize***, from the `02-odh` application box and the following modal dialog respectively. This will deploy Kubeflow artifacts as defined in the KfDef file: `infra/02-odh/odh-kfedf-data-catalog.yaml`. For this instance, an instance of Jupyter Hub will be deployed and accessible via a Route.  
+- Validate the deployment: 
+    - The ArgoCD application details should look similar to the following: 
+    ![Screenshot from 2021-06-09 15-25-58](https://user-images.githubusercontent.com/61749/121424500-03426800-c937-11eb-87af-18e0c5921f78.png)
+    - Validate the service routes for the Open Data Hub Dashboard and Jupyter Hub by navigating to the "Routes" section in Openshift. You should see two valid routes.
+    ![Screenshot from 2021-06-09 15-29-16](https://user-images.githubusercontent.com/61749/121424913-78ae3880-c937-11eb-8835-4d82f6b84392.png)
 
 ## 6. Install and Setup Kafka and Kafka Connect
 
