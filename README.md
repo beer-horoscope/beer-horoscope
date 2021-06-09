@@ -91,13 +91,28 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 - click: on the `00-operators` Application Tile and you will be presented with the following application layout: 
 ![Screenshot from 2021-06-09 14-09-31](https://user-images.githubusercontent.com/61749/121414518-55ca5700-c92c-11eb-807d-1b8672f430b1.png)
 - click: ***Sync::Synchronize***, from the `00-operators` application box and the following modal dialog respectively. This will deploy the Red Hat AMQ Streams and Open Data Hub Operator into your cluster. 
-- Validate the deployment by reviewing the following: 
+- Validate the deployment: 
     - The ArgoCD application details should look similar to the following: 
     ![Screenshot from 2021-06-09 14-17-16](https://user-images.githubusercontent.com/61749/121415500-6af3b580-c92d-11eb-8c3f-130a0d765e17.png)
-    - Review the deployment by reviewing your installed operators in your project within Openshift. 
+    - Review your installed operators in your project within Openshift. 
     ![Screenshot from 2021-06-09 14-18-20](https://user-images.githubusercontent.com/61749/121415629-91b1ec00-c92d-11eb-9889-9af8815d9f7f.png)
 
 ## 4. Install a MySql Database Instance
+
+- click: on the `01-database` Application Tile and you will be presented with the following application layout: 
+![Screenshot from 2021-06-09 14-31-47](https://user-images.githubusercontent.com/61749/121417370-7051ff80-c92f-11eb-94ce-f98e1543ef5d.png)
+- click: ***Sync::Synchronize***, from the `01-database` application box and the following modal dialog respectively. This will deploy a Persistent MySql Database instance leveraging an Openshift Template. 
+- Validate the deployment: 
+    - The ArgoCD application details should look similar to the following: 
+    ![Screenshot from 2021-06-09 14-41-44](https://user-images.githubusercontent.com/61749/121418708-d8551580-c930-11eb-95e8-ee8b343f358b.png)
+    - Validate the database schema, tables, and data at a command line terminal
+        ```bash
+        # make sure the correct openshift project is selected
+        oc project beer-rec-system
+
+        # run the validation script from the root of the source repository w/in a bash shell
+        source scripts/validate-database.sh
+        ```
 
 ## 5. Install Open Data Hub Instance
 
