@@ -3,6 +3,8 @@ kind: Kafka
 metadata:
   name: my-cluster
   namespace: beer-rec-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   kafka:
     config:

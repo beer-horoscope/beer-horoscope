@@ -7,6 +7,8 @@ metadata:
   namespace: beer-rec-system
   labels:
     strimzi.io/cluster: my-cluster
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   partitions: 1
   replicas: 1

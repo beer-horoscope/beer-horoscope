@@ -23,6 +23,5 @@ spec:
       source scripts/create-database.sh
       
       EOF
-   
   restartPolicy: Never
         
