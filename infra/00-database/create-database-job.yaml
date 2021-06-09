@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: create-database-job
+spec:
+  serviceAccountName: internal-oc-container
+  containers:
+  - name: internal-oc-container
+    image: quay.io/kelee/internal-oc-container:latest
+    command:
+    - sh
+    - "-c"
+    - |
+      /bin/bash <<'EOF'
+      cd /home
+        
+      echo "001"
+      pwd
+      ls -ll -a
+
+      mkdir temp
+      cd temp
+      git clone https://github.com/beer-horoscope/beer-horoscope.git
+
+      echo "002"
+      pwd
+      ls -ll -a
+
+      cd beer-horoscope
+
+      echo "003"
+      pwd
+      ls -ll -a
+
+      cd scripts
+
+      echo "004"
+      pwd
+      ls -ll -a
+
+      EOF
+   
+  restartPolicy: Never
+        

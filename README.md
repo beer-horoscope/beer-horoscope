@@ -7,9 +7,6 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
 # Pre-requisites
 
 - An Openshift Cluster >= v4.7.x
-- Beer Review Data (beer_reviews.csv)
-    - [mirror 1](https://www.kaggle.com/rdoume/beerreviews) 
-    - [mirror 2](https://data.world/socialmediadata/beeradvocate)
 
 # I. Initial Setup
 
@@ -20,6 +17,8 @@ oc create new-project beer-rec-system
 ```
 
 ## 2. Create Database
+
+Obtain the Beer Review csv data from one of the mirrors in the prequisites section. Once obtained, place the csv file, "beer_reviews.csv", in the root of the repository folder. 
 
 ```bash
 # create mysql database deployment config
