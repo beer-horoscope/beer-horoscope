@@ -81,9 +81,11 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 ![Screenshot from 2021-06-08 08-28-27](https://user-images.githubusercontent.com/61749/121194029-f7ba4880-c833-11eb-8438-5be1f712fc83.png)
 
 ### vi. Sync the Beer Horoscope Application
-- click: ***Sync::Synchronize***, from the beer-horoscope application box and follow dialog respectively. This will bring in all sub applications tied via Helm Chart, as defined in the repository, and synchronize with your ArgoCD main application, beer-horoscope. 
+- click: ***Sync::Synchronize***, from the beer-horoscope application box and following dialog respectively. This will bring in all sub applications tied via Helm Chart, as defined in the repository, and synchronize with your ArgoCD main application, beer-horoscope.
+
 - ***Before***:
 ![Screenshot from 2021-06-08 09-00-27](https://user-images.githubusercontent.com/61749/121215157-618f1e00-c845-11eb-9d1f-6871c87a4bfd.png)
+
 - ***After***:
 ![Screenshot from 2021-06-09 13-25-43](https://user-images.githubusercontent.com/61749/121408647-40522e80-c926-11eb-9772-547a24090408.png)
 
