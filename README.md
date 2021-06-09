@@ -105,6 +105,8 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 - Validate the deployment: 
     - The ArgoCD application details should look similar to the following: 
     ![Screenshot from 2021-06-09 14-41-44](https://user-images.githubusercontent.com/61749/121418708-d8551580-c930-11eb-95e8-ee8b343f358b.png)
+    - Validate the deployment topology in "Developer" mode:
+    ![Screenshot from 2021-06-09 14-55-10](https://user-images.githubusercontent.com/61749/121420459-b78dbf80-c932-11eb-9e9b-521073cf2981.png)
     - Validate the database schema, tables, and data at a command line terminal
         ```bash
         # make sure the correct openshift project is selected
