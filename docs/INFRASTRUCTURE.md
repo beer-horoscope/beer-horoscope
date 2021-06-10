@@ -34,10 +34,10 @@ oc -n openshift-gitops get secrets openshift-gitops-cluster -o 'go-template={{in
 
 ### iii. login to Argo CD: 
 - Uri: 
-    - click on the Openshift Application "OpenShift GitOps": 
+    - ***option 1***: click on the Openshift Application "OpenShift GitOps": 
     ![Screenshot from 2021-06-09 17-55-21](https://user-images.githubusercontent.com/61749/121439611-e2d0d880-c94b-11eb-8a61-b5e73405ee68.png)
 
-    - or use the terminal to get the uri
+    - ***option 2***: use the terminal to get the uri
     ```bash
     #get the argocd route uri
     argocd_uri=$(oc get routes openshift-gitops-server -n openshift-gitops -o 'jsonpath={.spec.host}')

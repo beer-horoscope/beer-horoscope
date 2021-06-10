@@ -82,7 +82,7 @@ def beer_names_tag(tag):
 @app.route('/api/cache', methods=['GET'])
 def cache_refresh():
     if request.method == 'GET':
-        thread = threading.Thread(target=mutual_cache_refresh(), args=(lock,))
+        thread = threading.Thread(target=mutual_cache_refresh, args=(lock,))
         thread.daemon = True
         thread.start()
         return "cache refreshing"
@@ -91,7 +91,7 @@ def cache_refresh():
 @app.route('/api/train', methods=['GET'])
 def trigger_train_models():
     if request.method == 'GET':
-        thread = threading.Thread(target=mutual_train_models(), args=(lock,))
+        thread = threading.Thread(target=mutual_train_models, args=(lock,))
         thread.daemon = True
         thread.start()
         return "training data. this will take a while"
