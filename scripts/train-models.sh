@@ -1,10 +1,11 @@
 #!/bin/bash
 
-export TRAINED_MODELS_DIR=/mnt/sdb1/out/
-export HOST=localhost
+export TRAINED_MODELS_DIR=/mnt/storage/out/
+export HOST=mysql
 export PORT=3306
 export DATABASE=beer_horoscope
 export USER=user
 export PASSWORD=password
-source /home/payday/pyenv/001/bin/activate
-python /home/payday/projects/chicago-red-hat-summit-ai-ml/src/training/main.py
+source /home/temp/venv/bin/activate
+pip install -r /home/temp/beer_horoscope/src/training/requirements.txt
+python /home/temp/beer_horoscope/src/training/main.py
