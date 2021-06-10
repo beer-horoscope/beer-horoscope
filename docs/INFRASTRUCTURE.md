@@ -38,14 +38,14 @@ oc -n openshift-gitops get secrets openshift-gitops-cluster -o 'go-template={{in
     ![Screenshot from 2021-06-09 17-55-21](https://user-images.githubusercontent.com/61749/121439611-e2d0d880-c94b-11eb-8a61-b5e73405ee68.png)
 
     - ***option 2***: use the terminal to get the uri
-    ```bash
-    #get the argocd route uri
-    argocd_uri=$(oc get routes openshift-gitops-server -n openshift-gitops -o 'jsonpath={.spec.host}')
-    
-    # print the full uri and navigate to that in your browser
-    # example: https://openshift-gitops-server-openshift-gitops.apps.cluster.local
-    echo https://$argocd_uri
-    ```
+        ```bash
+        #get the argocd route uri
+        argocd_uri=$(oc get routes openshift-gitops-server -n openshift-gitops -o 'jsonpath={.spec.host}')
+        
+        # print the full uri and navigate to that in your browser
+        # example: https://openshift-gitops-server-openshift-gitops.apps.cluster.local
+        echo https://$argocd_uri
+        ```
      
 - username: admin
 - password: obtained in previous step
@@ -170,15 +170,18 @@ https://github.com/beer-horoscope/beer-horoscope.git)
     - The ArgoCD application details should look similar to the following: 
     ![Screenshot from 2021-06-10 00-41-07](https://user-images.githubusercontent.com/61749/121470980-93f36500-c984-11eb-8090-5b631b49ea2b.png)
     - Open the application: 
-    ```bash
-    #get the application route uri
-    app_uri=$(oc get routes beer-horoscope -o 'jsonpath={.spec.host}')
-    
-    # print the full uri and navigate to that in your browser
-    # example: http://beer-horoscope-beer-rec-system.apps.okd.thekeunster.local/
-    echo http://$app_uri
-    ```
-    ![Screenshot from 2021-06-10 00-53-18](https://user-images.githubusercontent.com/61749/121472063-47a92480-c986-11eb-81c6-9aeb264fa42d.png)
+        - ***option 1***: Navigating to the "Routes" section in Openshift and click on the route for "beer-horoscope"
+        ![Screenshot from 2021-06-10 08-49-29](https://user-images.githubusercontent.com/61749/121536585-d048b480-c9c8-11eb-9a1c-b1617e445cd2.png)
+        - ***option 2***: use the terminal to get the uri
+            ```bash
+            #get the application route uri
+            app_uri=$(oc get routes beer-horoscope -o 'jsonpath={.spec.host}')
+            
+            # print the full uri and navigate to that in your browser
+            # example: http://beer-horoscope-beer-rec-system.apps.okd.thekeunster.local/
+            echo http://$app_uri
+            ```
+        ![Screenshot from 2021-06-10 00-53-18](https://user-images.githubusercontent.com/61749/121472063-47a92480-c986-11eb-81c6-9aeb264fa42d.png)
 
 ## X. Additional Resources
 
