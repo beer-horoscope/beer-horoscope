@@ -3,9 +3,10 @@ kind: Pod
 metadata:
   name: jumpbox
 spec:
+  serviceAccountName: internal-oc-container
   containers:
     - name: jumpbox
-      image: ubuntu:latest
+      image: quay.io/kelee/internal-oc-container:latest
       command: ["/bin/sh", "-c", "tail -f /dev/null"]
       volumeMounts:
       - mountPath: "/mnt/storage"
