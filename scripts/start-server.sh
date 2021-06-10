@@ -8,6 +8,7 @@ export DATABASE=beer_horoscope
 export USER=user
 export PASSWORD=password
 mkdir -p /mnt/storage/out
+virtualenv /home/temp/venv
 source /home/temp/venv/bin/activate
 pip install -r /home/temp/beer-horoscope/src/rest_api/requirements.txt
 flask run --host=0.0.0.0
