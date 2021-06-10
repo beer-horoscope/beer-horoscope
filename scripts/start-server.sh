@@ -1,11 +1,13 @@
 #!/bin/bash
 
-export FLASK_APP=/home/payday/projects/chicago-red-hat-summit-ai-ml/src/rest_api/main.py
-export TRAINED_MODELS_DIR=/mnt/sdb1/out/
-export HOST=localhost
+export FLASK_APP=/home/temp/beer-horoscope/src/rest_api/main.py
+export TRAINED_MODELS_DIR=/mnt/storage/out/
+export HOST=mysql
 export PORT=3306
 export DATABASE=beer_horoscope
 export USER=user
 export PASSWORD=password
-source /home/payday/pyenv/001/bin/activate
+mkdir -p /mnt/storage/out
+source /home/temp/venv/bin/activate
+pip install -r /home/temp/beer-horoscope/src/rest_api/requirements.txt
 flask run --host=0.0.0.0

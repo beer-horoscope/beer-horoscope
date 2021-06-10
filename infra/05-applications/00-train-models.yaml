@@ -3,19 +3,19 @@ kind: Pod
 metadata:
   name: train-models-job
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   serviceAccountName: internal-oc-container
   volumes:
   - name: storage
     persistentVolumeClaim:
       claimName: beer-rec-pvc
-  volumeMounts:
-    - mountPath: "/mnt/storage"
-      name: storage
   containers:
   - name: internal-oc-container
     image: quay.io/kelee/internal-oc-container:latest
+    volumeMounts:
+    - mountPath: "/mnt/storage"
+      name: storage
     command:
     - sh
     - "-c"
@@ -28,7 +28,7 @@ spec:
       git clone https://github.com/beer-horoscope/beer-horoscope.git
       cd beer-horoscope
       
-      tail -f /dev/null
+      source scripts/train-models.sh
       EOF
   restartPolicy: Never
         

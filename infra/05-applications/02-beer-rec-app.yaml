@@ -5,6 +5,8 @@ metadata:
     app: beer-rec-app
   name: beer-rec-app
   namespace: beer-rec-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   replicas: 1
   selector:
@@ -32,6 +34,8 @@ metadata:
     app: beer-rec-app
   name: beer-rec-app
   namespace: beer-rec-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   ports:
   - name: ports
@@ -52,6 +56,7 @@ metadata:
     app: beer-rec-app
   annotations:
     openshift.io/host.generated: 'true'
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   to:
     kind: Service

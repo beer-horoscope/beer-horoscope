@@ -5,6 +5,8 @@ metadata:
     app: beer-rec-rest-api
   name: beer-rec-rest-api
   namespace: beer-rec-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   replicas: 1
   selector:
@@ -48,6 +50,8 @@ metadata:
     app: beer-rec-rest-api
   name: beer-rec-rest-api
   namespace: beer-rec-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   ports:
   - name: 5000-5000

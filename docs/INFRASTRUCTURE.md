@@ -163,3 +163,6 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 
 
 ## IX. Deploy Applications
+
+- click: on the `04-storage` Application Tile and you will be presented with the following application layout: 
+![Screenshot from 2021-06-09 23-50-58](https://user-images.githubusercontent.com/61749/121466777-97cfb900-c97d-11eb-9e77-ee0a0880206a.png)
