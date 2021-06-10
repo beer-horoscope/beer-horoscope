@@ -10,5 +10,5 @@ app = Flask(__name__)
 
 if __name__ == '__main__':
     beer_recs.train_models()
-    print(beer_recs.generate_beer_recs("Cauldron DIPA", 5))
-    print(beer_recs.generate_beer_recs("Swannanoa Sunset", 10))
+    print(beer_recs.generate_beer_recs(["Cauldron DIPA"], 5))
+    print(beer_recs.generate_beer_recs(["Swannanoa Sunset"], 10))
