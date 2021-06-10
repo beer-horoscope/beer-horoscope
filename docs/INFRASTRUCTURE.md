@@ -170,3 +170,13 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 - Validate the deployment: 
     - The ArgoCD application details should look similar to the following: 
     ![Screenshot from 2021-06-10 00-41-07](https://user-images.githubusercontent.com/61749/121470980-93f36500-c984-11eb-8090-5b631b49ea2b.png)
+    - Open the application: 
+    ```bash
+    #get the application route uri
+    app_uri=$(oc get routes beer-horoscope -o 'jsonpath={.spec.host}')
+    
+    # print the full uri and navigate to that in your browser
+    # example: http://beer-horoscope-beer-rec-system.apps.okd.thekeunster.local/
+    echo http://$app_uri
+    ```
+    ![Screenshot from 2021-06-10 00-53-18](https://user-images.githubusercontent.com/61749/121472063-47a92480-c986-11eb-81c6-9aeb264fa42d.png)
