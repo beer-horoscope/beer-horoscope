@@ -6,9 +6,9 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
 
 # Pre-requisites
 
-- An Openshift Cluster >= v4.7.x
-- jq - https://stedolan.github.io/jq/
-    - not required but helpful for formatting JSON output from the terminal
+- An [Openshift](https://www.openshift.com/) Cluster >= v4.7.x
+- [podman](https://podman.io/) - For building and uploading container images
+- [jq](https://stedolan.github.io/jq/) - For formatting JSON output from the terminal
 
 # [I. Setup Infrastructure and Deployment](docs/INFRASTRUCTURE.md)
 
