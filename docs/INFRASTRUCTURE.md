@@ -155,5 +155,11 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 ## VIII. Configure Storage
 
 - click: on the `04-storage` Application Tile and you will be presented with the following application layout: 
+![Screenshot from 2021-06-09 19-52-48](https://user-images.githubusercontent.com/61749/121447926-4d8a1000-c95c-11eb-800a-648941971426.png)
+- click: ***Sync::Synchronize***, from the `04-storage` application box and the following modal dialog respectively. This will deploy a 100Gi persistent volume claim, which will be used to store trained model data. 
+- Validate the deployment: 
+    - The ArgoCD application details should look similar to the following: 
+    ![Screenshot from 2021-06-09 19-55-39](https://user-images.githubusercontent.com/61749/121448157-b1143d80-c95c-11eb-88b9-f6f602b45f13.png)
+
 
 ## IX. Deploy Applications

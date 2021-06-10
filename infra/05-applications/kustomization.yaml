@@ -1,0 +1,6 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- 01-beer-rec-rest-api.yaml
+- 02-beer-rec-app.yaml
+- 03-beer-rec-stream-processor.yaml
