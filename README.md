@@ -10,9 +10,9 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
 - jq - https://stedolan.github.io/jq/
     - not required but helpful for formatting JSON output from the terminal
 
-# [I. Infrastructure, Deployment, and Setup](docs/INFRASTRUCTURE.md)
+# [I. Setup Infrastructure and Deployment](docs/INFRASTRUCTURE.md)
 
-# II. Open Data Hub
+# II. Setup Jupyter Notebooks
 
 # III. Model Training
 
