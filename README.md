@@ -12,7 +12,7 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
 
 # [I. Setup Infrastructure and Deployment](docs/INFRASTRUCTURE.md)
 
-# II. Setup Jupyter Notebooks
+# [II. Setup Jupyter Notebooks](docs/JUPYTER.md)
 
 # III. Model Training Walkthrough
 

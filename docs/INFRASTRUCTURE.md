@@ -161,7 +161,6 @@ https://github.com/beer-horoscope/beer-horoscope.git)
     - The ArgoCD application details should look similar to the following: 
     ![Screenshot from 2021-06-09 19-55-39](https://user-images.githubusercontent.com/61749/121448157-b1143d80-c95c-11eb-88b9-f6f602b45f13.png)
 
-
 ## IX. Deploy Applications
 
 - click: on the `05-applications` Application Tile and you will be presented with the following application layout: 
@@ -180,3 +179,7 @@ https://github.com/beer-horoscope/beer-horoscope.git)
     echo http://$app_uri
     ```
     ![Screenshot from 2021-06-10 00-53-18](https://user-images.githubusercontent.com/61749/121472063-47a92480-c986-11eb-81c6-9aeb264fa42d.png)
+
+## X. Additional Resources
+
+- Run `oc` or `kubectl` within a pod. See this repository for more info: [https://github.com/keunlee/internal-oc-cli-container](https://github.com/keunlee/internal-oc-cli-container)
