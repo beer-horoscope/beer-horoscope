@@ -7,6 +7,8 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
 # Pre-requisites
 
 - An Openshift Cluster >= v4.7.x
+- jq - https://stedolan.github.io/jq/
+    - not required but helpful for formatting JSON output from the terminal
 
 # I. Infrastructure, Deployment, and Setup
 
@@ -130,6 +132,7 @@ https://github.com/beer-horoscope/beer-horoscope.git)
         ```
 
 ## 5. Install Open Data Hub Instance
+
 - click: on the `02-odh` Application Tile and you will be presented with the following application layout: 
 ![Screenshot from 2021-06-09 15-19-54](https://user-images.githubusercontent.com/61749/121423710-2d475a80-c936-11eb-80ba-c0378227e2b8.png)
 - click: ***Sync::Synchronize***, from the `02-odh` application box and the following modal dialog respectively. This will deploy Kubeflow artifacts as defined in the KfDef file: `infra/02-odh/odh-kfedf-data-catalog.yaml`. For this instance, an instance of Jupyter Hub will be deployed and accessible via a Route.  
@@ -141,6 +144,26 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 
 ## 6. Install and Setup Kafka and Kafka Connect
 
+- click: on the `03-kafka` Application Tile and you will be presented with the following application layout: 
+![Screenshot from 2021-06-09 19-14-10](https://user-images.githubusercontent.com/61749/121445372-ef0e6300-c956-11eb-84f8-71bb29f25ea2.png)
+- click: ***Sync::Synchronize***, from the `03-kafka` application box and the following modal dialog respectively. This will deploy a Kafka Cluster, Topics, Kafka Connect Cluster, and Kafka Connectors. 
+- Validate the deployment: 
+    - The ArgoCD application details should look similar to the following: 
+    ![Screenshot from 2021-06-09 19-27-38](https://user-images.githubusercontent.com/61749/121446289-c9825900-c958-11eb-88da-e83571a62c41.png)
+    - Validations at the terminal
+    ```bash
+    # check available connectors
+    oc exec -i `oc get pods --field-selector status.phase=Running -l strimzi.io/name=my-connect-cluster-connect -o=jsonpath='{.items[0].metadata.name}'` -- curl -s http://my-connect-cluster-connect-api:8083/connector-plugins | jq
+
+    # check connector status - debezium-mysql-kafka-connector
+    oc exec -i `oc get pods --field-selector status.phase=Running -l strimzi.io/name=my-connect-cluster-connect -o=jsonpath='{.items[0].metadata.name}'` -- curl -s http://my-connect-cluster-connect-api:8083/connectors/debezium-mysql-kafka-connector/status | jq 
+
+    # check connector status - http-sink-connector
+    oc exec -i `oc get pods --field-selector status.phase=Running -l strimzi.io/name=my-connect-cluster-connect -o=jsonpath='{.items[0].metadata.name}'` -- curl -s http://my-connect-cluster-connect-api:8083/connectors/http-sink-connector/status | jq 
+
+    # list kafka topics
+    oc exec -i `oc get pods --field-selector status.phase=Running -l strimzi.io/name=my-connect-cluster-connect -o=jsonpath='{.items[0].metadata.name}'` -- bin/kafka-topics.sh --bootstrap-server my-cluster-kafka-bootstrap:9092 --list
+    ```
 ## 7. Configure Storage
 
 ## 8. Deploy Applications
