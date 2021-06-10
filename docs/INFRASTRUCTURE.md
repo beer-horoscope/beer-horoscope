@@ -1,4 +1,4 @@
-# Infrastructure, Deployment, and Setup
+# Setup Infrastructure and Deployment
 
 ## I. Create Openshift Project
 
