@@ -164,5 +164,9 @@ https://github.com/beer-horoscope/beer-horoscope.git)
 
 ## IX. Deploy Applications
 
-- click: on the `04-storage` Application Tile and you will be presented with the following application layout: 
+- click: on the `05-applications` Application Tile and you will be presented with the following application layout: 
 ![Screenshot from 2021-06-09 23-59-00](https://user-images.githubusercontent.com/61749/121467441-aff40800-c97e-11eb-8681-f00d7c1197d1.png)
+- click: ***Sync::Synchronize***, from the `05-applications` application box and the following modal dialog respectively. 
+- Validate the deployment: 
+    - The ArgoCD application details should look similar to the following: 
+    ![Screenshot from 2021-06-10 00-41-07](https://user-images.githubusercontent.com/61749/121470980-93f36500-c984-11eb-8090-5b631b49ea2b.png)
