@@ -8,4 +8,4 @@ export USER=user
 export PASSWORD=password
 source /home/temp/venv/bin/activate
 pip install -r /home/temp/beer-horoscope/src/training/requirements.txt
-python /home/temp/beer_horoscope/src/training/main.py
+python /home/temp/beer-horoscope/src/training/main.py
