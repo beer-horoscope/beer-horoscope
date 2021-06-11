@@ -76,7 +76,7 @@ This signifies the recommendations were made because their were trained data mod
 
 To see the trained model files, refer to the `TRAINED_MODELS_DIR` environment variables specified in the script `data/train-models-local.sh`
 
-listing the contents that directory should yield something similar to the following output: 
+listing the contents of the `TRAINED_MODELS_DIR` directory should yield something similar to the following output: 
 
 ```bash
 ls -ll -h temp/out
