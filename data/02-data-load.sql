@@ -2,6 +2,7 @@ SET GLOBAL local_infile=1;
 
 USE `beer_horoscope`;
 
+-- LOAD DATA LOCAL INFILE 'update/the/path/to/beer_reviews.csv'
 LOAD DATA LOCAL INFILE '/tmp/data/beer_reviews.csv' 
 INTO TABLE beer_reviews 
 FIELDS TERMINATED BY ',' 

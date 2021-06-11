@@ -1,6 +1,6 @@
 # Model Training Walkthrough
 
-This walkthrough will guide you setting up and training models on a local development machine
+This walkthrough will guide you through setting up and training models on a local development machine
 
 # Prerequisites
 
@@ -11,9 +11,19 @@ This walkthrough will guide you setting up and training models on a local develo
 - [virtualenv](https://virtualenv.pypa.io/en/latest/)
     - [installation guide](https://docs.python-guide.org/dev/virtualenvs/#lower-level-virtualenv)
 
-# Setup Database
+# I. Setup Database
 
-Run the sql scripts found in the `data` folder in order. 
+## i. Obtain a Data Set
+
+1. A data set can be obtained [here](https://github.com/beer-horoscope/beer-review-data-set/raw/main/beer_reviews_data.zip)
+
+2. Unzip the archive and note the location. For this walkthrough we will denote the location as `/tmp/data/beer_reviews.csv`
+
+## ii. Prep and Run Scripts
+
+1. Update the script file `data/02-data-load.sql`, and update the `LOAD DATA LOCAL INFILE` path as noted in the previous section. i.e. `LOAD DATA LOCAL INFILE /tmp/data/beer_reviews.csv` 
+
+2. Run the sql scripts found in the `data` folder in order. 
 
 You have a few options on how to do this. 
 
@@ -26,9 +36,11 @@ Execute the scripts in the GUI, one at a time in order
 Execute the following commands: 
 
 ```bash
-mysql -u root -p <you_root_password> > data/01-schema.sql
-mysql -u root -p <you_root_password> > data/02-data-load.sql
-mysql -u root -p <you_root_password> > data/03-store-procedures.sql
-mysql -u root -p <you_root_password> > data/04-grants-permissions.sql
+# NOTE: no spaces between parameter and parameter values -u and -p
+
+mysql -uroot -p<you_root_password> > data/01-schema.sql
+mysql --local-infile=1 -uroot -p<you_root_password> > data/02-data-load.sql
+mysql -uroot -p<you_root_password> > data/03-store-procedures.sql
+mysql -uroot -p<you_root_password> > data/04-grants-permissions.sql
 ```
 
