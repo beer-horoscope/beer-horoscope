@@ -12,8 +12,8 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
 
 # [I. Setup Infrastructure and Deployment](docs/INFRASTRUCTURE.md)
 
-# [II. Setup Jupyter Notebooks](docs/JUPYTER.md)
+# [II. Jupyter Notebooks Walkthrough](docs/JUPYTER.md)
 
 # [III. Model Training Walkthrough](docs/MODEL_TRAINING.md)
 
-# IV. Application Walkthrough
+# IV. Application Build Walkthrough

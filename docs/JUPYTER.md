@@ -1,4 +1,4 @@
-# Setup Jupyter Notebooks
+# Jupyter Notebooks Walkthrough
 
 ## I. Create a Jupyter Notebook Instance
 
