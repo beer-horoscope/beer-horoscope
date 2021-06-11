@@ -25,22 +25,26 @@ This walkthrough will guide you through setting up and training models on a loca
 
 2. Run the sql scripts found in the `data` folder in order. 
 
-You have a few options on how to do this. 
+    You have a few options on how to do this. 
 
-***option 1***: Use the MySql Workbench GUI application
+    ***option 1***: Use the MySql Workbench GUI application
 
-Execute the scripts in the GUI, one at a time in order
+    Execute the scripts in the GUI, one at a time in order
 
-***option 2***: Use the `mysql` commandline interface tool
+    ***option 2***: Use the `mysql` commandline interface tool
 
-Execute the following commands: 
+    Execute the following commands: 
 
-```bash
-# NOTE: no spaces between parameter and parameter values -u and -p
+    ```bash
+    # NOTE: no spaces between parameter and parameter values -u and -p
 
-mysql -uroot -p<you_root_password> > data/01-schema.sql
-mysql --local-infile=1 -uroot -p<you_root_password> > data/02-data-load.sql
-mysql -uroot -p<you_root_password> > data/03-store-procedures.sql
-mysql -uroot -p<you_root_password> > data/04-grants-permissions.sql
-```
+    mysql -uroot -p<you_root_password> > data/01-schema.sql
+    mysql --local-infile=1 -uroot -p<you_root_password> > data/02-data-load.sql
+    mysql -uroot -p<you_root_password> > data/03-store-procedures.sql
+    mysql -uroot -p<you_root_password> > data/04-grants-permissions.sql
+    ```
+
+# II. Train Data Model
+
+## i. Setup Dev Environment
 
