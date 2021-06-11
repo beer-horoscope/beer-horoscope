@@ -16,4 +16,4 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
 
 # [III. Model Training Walkthrough](docs/MODEL_TRAINING.md)
 
-# IV. Application Build Walkthrough
+# [IV. Application Build Walkthrough](docs/APPLICATION.md)
