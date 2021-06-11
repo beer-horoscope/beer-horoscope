@@ -48,5 +48,16 @@ This walkthrough will guide you through setting up and training models on a loca
 
 ## i. Setup Dev Environment Script
 
+1. Open the file: `scripts/train-models-local.sh`.
+
+2. Update all values in the script to match your environment
+
+## ii. Train Models
+
+To begin training models run the following: 
+
+```bash
+source data/train-models-local.sh
+```
 
 
