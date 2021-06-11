@@ -15,5 +15,3 @@ A fullstack, end-to-end implementation of an application which gives beer recomm
 # [II. Jupyter Notebooks Walkthrough](docs/JUPYTER.md)
 
 # [III. Model Training Walkthrough](docs/MODEL_TRAINING.md)
-
-# [IV. Application Build Walkthrough](docs/APPLICATION.md)

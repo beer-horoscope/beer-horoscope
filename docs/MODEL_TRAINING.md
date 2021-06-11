@@ -88,4 +88,3 @@ total 626M
 -rw-r--r--. 1 hershey hershey 619K Jun 11 14:14 dfbag.pickle
 -rw-r--r--. 1 hershey hershey 198K Jun 11 14:14 indices.pickle
 ```
-
