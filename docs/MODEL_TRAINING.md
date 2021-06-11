@@ -60,5 +60,32 @@ To begin training models run the following:
 source data/train-models-local.sh
 ```
 
+In the model training output you'll see a few beer recommendations show up. Should look like similar to: 
 
+```bash
+populating beer list
+loading corr
+loading cosine sim
+loading indices
+loading dfbag
+['Imperial Stout', 'Arbor Brewing Aurora Arborealis', 'Sausa Pils', 'Cauldron DIPA']
+['Toubab Brewe', 'Schnucken Pils', 'Amigo Lager (Unfiltered)', 'Schornstein Pilsen Natural', 'Königsbacher Zischke' , 'Pissy Pelican Pale Ale', 'English Dark Mild', '"Harboe Pilsner 3', 'Barrel Aged Frosted Frog Christmas Ale', 'Anvil Steam']
+```
+
+This signifies the recommendations were made because their were trained data models it leveraged to produce the recommendations. 
+
+To see the trained model files, refer to the `TRAINED_MODELS_DIR` environment variables specified in the script `data/train-models-local.sh`
+
+listing the contents that directory should yield something similar to the following output: 
+
+```bash
+ls -ll -h temp/out
+
+total 626M
+-rw-r--r--. 1 hershey hershey  20K Jun 11 14:14 beer_names_list.pickle
+-rw-r--r--. 1 hershey hershey 6.8M Jun 11 14:14 corr.pickle
+-rw-r--r--. 1 hershey hershey 618M Jun 11 14:14 cosine_sim.pickle
+-rw-r--r--. 1 hershey hershey 619K Jun 11 14:14 dfbag.pickle
+-rw-r--r--. 1 hershey hershey 198K Jun 11 14:14 indices.pickle
+```
 
