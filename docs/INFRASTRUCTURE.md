@@ -75,7 +75,7 @@ https://github.com/beer-horoscope/beer-horoscope.git)
         - ***Cluster Url***: https://kubernetes.default.svc
         - ***Namespace***: beer-rec-system
     - Helm
-        - ***Values File***: values.xml
+        - ***Values File***: values.yaml
         - ***spec.destination.server***: https://kubernetes.default.svc
 ![Screenshot from 2021-06-08 08-28-27](https://user-images.githubusercontent.com/61749/121194029-f7ba4880-c833-11eb-8438-5be1f712fc83.png)
 
