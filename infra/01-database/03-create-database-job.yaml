@@ -21,7 +21,8 @@ spec:
       git clone https://github.com/beer-horoscope/beer-horoscope.git
       cd beer-horoscope
       source scripts/create-database.sh
-      
+      tail -f /dev/null 
+       
       EOF
   restartPolicy: Never
         

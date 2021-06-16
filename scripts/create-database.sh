@@ -36,5 +36,3 @@ oc exec $mpod -n beer_rec_system -- bash -c "mysql --user=root < /tmp/data/03-st
 oc exec $mpod -n beer_rec_system -- bash -c "mysql --user=root < /tmp/data/04-grants-permissions.sql"
 
 source scripts/validate-database.sh
-
-tail -f /dev/null
