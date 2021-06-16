@@ -17,7 +17,7 @@ spec:
       requests:
         memory: "50Mi"
       limits:
-        memory: "16Gi"
+        memory: "6Gi"
     volumeMounts:
     - mountPath: "/mnt/storage"
       name: storage
