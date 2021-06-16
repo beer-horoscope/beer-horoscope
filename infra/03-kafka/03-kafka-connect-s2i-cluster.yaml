@@ -49,6 +49,7 @@ spec:
       cd temp
       git clone https://github.com/beer-horoscope/beer-horoscope.git
       cd beer-horoscope
+      git checkout smaller-footprint
 
       # start a build to upload the connector via s2i
       oc start-build my-connect-cluster-connect --from-dir=infra/03-kafka/connectors --follow

@@ -27,6 +27,7 @@ spec:
       cd temp
       git clone https://github.com/beer-horoscope/beer-horoscope.git
       cd beer-horoscope
+      git checkout smaller-footprint
       
       source scripts/train-models.sh
       EOF
