@@ -13,6 +13,11 @@ spec:
   containers:
   - name: internal-oc-container
     image: quay.io/kelee/internal-oc-container:latest
+    resources:
+      requests:
+        memory: "50Mi"
+      limits:
+        memory: "16Gi"
     volumeMounts:
     - mountPath: "/mnt/storage"
       name: storage
