@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: 'https://github.com/beer-horoscope/beer-horoscope.git'
     path: infra/03-kafka
-    targetRevision: HEAD
+    targetRevision: smaller-footprint
   project: default
   syncPolicy:
     syncOptions:
