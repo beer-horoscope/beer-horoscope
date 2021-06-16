@@ -25,8 +25,7 @@ oc adm policy add-cluster-role-to-user cluster-admin -z openshift-gitops-argocd-
 ### ii. Obtain the admin password
 
 ```bash
-oc -n openshift-gitops get secrets openshift-gitops-cluster -o 'go-template={{index .data "admin.password"}
-}' | base64 -d
+oc -n openshift-gitops get secrets openshift-gitops-cluster -o 'go-template={{index .data "admin.password"}}' | base64 -d
 
 # example output: ZwCQrTRmgoLUpB1vdJ7I8sku5H9DPFyG%
 # copy everything up to the '%' character
