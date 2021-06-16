@@ -21,6 +21,11 @@ spec:
       containers:
       - image: quay.io/kelee/beer-rec-rest-api:latest
         name: beer-rec-rest-api
+        resources:
+          requests:
+            memory: "50Mi"
+          limits:
+            memory: "6Gi"
         env:
           - name: TRAINED_MODELS_DIR
             value: "/mnt/storage/out/"
