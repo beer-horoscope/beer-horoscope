@@ -3,7 +3,7 @@
 ## I. Create Openshift Project
 
 ```bash
-oc create new-project beer-rec-system
+oc new-project beer-rec-system
 ```
 
 ## II. Install the "Red Hat GitOps Operator"
