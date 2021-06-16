@@ -18,7 +18,7 @@ oc cp data ${mpod}:/tmp
 # copy over beer data
 wget https://github.com/beer-horoscope/beer-review-data-set/raw/main/beer_reviews_data.zip
 unzip beer_reviews_data.zip
-oc cp beer_reviews.csv ${mpod}:/tmp/data -n beer_rec_system
+oc cp beer_reviews.csv ${mpod}:/tmp/data
 
 # wait for database to go online
 sleep 30
