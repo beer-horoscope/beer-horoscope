@@ -22,7 +22,6 @@ spec:
       cd beer-horoscope
       git checkout smaller-footprint
       source scripts/create-database.sh
-      tail -f /dev/null 
        
       EOF
   restartPolicy: Never
